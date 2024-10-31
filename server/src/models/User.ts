@@ -48,7 +48,7 @@ User.init(
       allowNull: false,
       unique: {
         name: 'unique_email',
-        msg: 'THe email address you have entered is already in use'
+        msg: 'The email address you have entered is already in use'
       },
       validate: {
         isEmail: {
