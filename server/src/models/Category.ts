@@ -29,7 +29,9 @@ Category.init(
 
   {
     sequelize: client,
-    tableName: 'shops',
+    tableName: 'category',
     underscored: true
   }
 );
+
+export default Category;
