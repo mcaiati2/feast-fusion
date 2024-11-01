@@ -1,14 +1,12 @@
-function AuthForm(propsObj: { isLogin: boolean }) {
+function Cuisines () {
     return (
         <>
-            <main id="authForm">
+        <main id="recipeForm">
                 <section className="row formStyle">
                     <form className="col-4 mx-auto">
-                        <h2 className="text-center">{propsObj.isLogin ? 'Sign In' : 'Sign Up'}</h2>
-
                         <div className="mb-3">
-                            <label htmlFor="exampleInputEmail1" className="form-label">Email address</label>
-                            <input type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" />
+                            <label htmlFor="textarea" className="form-label"></label>
+                            <input className="form-control" type="text" placeholder="Give it a tasty name!" />
                         </div>
                         <div className="mb-3">
                             <label htmlFor="exampleInputPassword1" className="form-label">Password</label>
@@ -27,4 +25,10 @@ function AuthForm(propsObj: { isLogin: boolean }) {
     )
 }
 
-export default AuthForm;
+export default Cuisines;
+
+
+
+
+
+[['Breakfast', 'Lunch/Dinner', 'Dessert', 'Snack']]

@@ -1,0 +1,54 @@
+/* Global */
+nav a.active,
+nav a:hover {
+    text-decoration: underline;
+}
+
+.navbar {
+    background-color: #DAB089 !important;
+    text-decoration: none !important
+}
+
+/* Landing Page */
+
+#landing {
+    background-image: url('./assets/images/landing.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    height: 100vh;
+    width: 100vw
+}
+
+/* AuthForm */
+
+#authForm {
+    background-image: url('./assets/images/register_login.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    height: 100vh;
+    width: 100vw
+}
+
+.formStyle {
+    padding-top: 200px;
+}
+
+/* Footer */
+
+footer {
+    background-color: #DAB089;
+}
+
+footer p {
+    margin-bottom: 0;
+}
+
+/* MEDIA QUERY */
+
+@media (max-width: 750px) {
+    #authForm {
+        background-size: cover;
+    }
+}
