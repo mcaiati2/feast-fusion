@@ -1,4 +1,11 @@
 /* Global */
+
+.row {
+    --bs-gutter-x: align-items;
+}
+
+/* Navbar */
+
 nav a.active,
 nav a:hover {
     text-decoration: underline;
@@ -17,7 +24,6 @@ nav a:hover {
     background-position: center;
     background-size: cover;
     height: 100vh;
-    width: 100vw
 }
 
 /* AuthForm */
@@ -28,7 +34,16 @@ nav a:hover {
     background-position: center;
     background-size: cover;
     height: 100vh;
-    width: 100vw
+}
+
+/* Add Recipe */
+
+#recipeForm {
+    background-image: url('./assets/images/recipe_form.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    height: 100vh;
 }
 
 .formStyle {
