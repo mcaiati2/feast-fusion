@@ -4,7 +4,7 @@ function RecipeForm() {
       <main id="recipeForm">
         <section className="row formStyle">
           <form className="col-4 mx-auto">
-            <div className="mb-3" >
+            <div className="mb-3">
               <h2>Its Cookin Time!</h2>
 
               <label htmlFor="textarea" className="form-label">Lets give this cuisine a name</label>
