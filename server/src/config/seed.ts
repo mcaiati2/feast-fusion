@@ -3,10 +3,11 @@ import User from '../models/User.js';
 import Meal from '../models/Meal.js';
 import Category from '../models/Category.js';
 
-async function seed() {
+
   await client.sync({ force: true });
 
-  const users = await User.bulkCreate([
+  async function seed() {
+  await User.bulkCreate([
     {
       id: 1,
       first_name: 'Tom',
@@ -23,14 +24,14 @@ async function seed() {
     },
   ]);
 
-  const categories = await Category.bulkCreate([
+  await Category.bulkCreate([
     { id: 1, name: 'Breakfast' },
     { id: 2, name: 'Lunch/Dinner' },
     { id: 3, name: 'Dessert' },
     { id: 4, name: 'Snack' },
   ]);
 
-  const meals = await Meal.bulkCreate([
+  await Meal.bulkCreate([
     {
       title: 'Pancakes',
       ingredients: 'Flour, Eggs, Milk, Sugar, Baking Powder',
