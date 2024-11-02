@@ -1,7 +1,7 @@
 import { DataTypes, Model } from 'sequelize';
 import client from '../config/connection.js';
 
-interface CategoryAttributes {
+export interface CategoryAttributes {
   id: number;
   name: string;
 }

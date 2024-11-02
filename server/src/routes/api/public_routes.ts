@@ -1,5 +1,7 @@
 import { Router, Request, Response } from 'express';
-import { Meal, User, Category } from '../../models/index.js';
+import Meal from '../../models/Meal.js';
+import User from '../../models/User.js';
+import Category from '../../models/Category.js';
 
 const router = Router();
 
@@ -15,8 +17,8 @@ router.get('/meal', async (_, res: Response) => {
           attributes: ['title', 'ingredients', 'servings', 'instructions', 'category']
         },
         {
-          model: User,
-          attributes: ['first_name', 'last_name']
+          model: Category,
+          attributes: ['name']
         }
       ]
     });
@@ -27,17 +29,18 @@ router.get('/meal', async (_, res: Response) => {
   }
 });
 
-// Get wines for a shop
+
 router.get('/category', async (req: Request, res: Response) => {
-  // Get all wines by shop id and also attach the user that created the shop
-  // We use the attributes property to specify the fields we want on the user
+
   const category = await Category.findAll({
-    include: {
-      model: User,
-      attributes: ['first_name']
-    },
+    include: [
+      {
+        model: User,
+        attributes: ['first_name']
+      }
+    ],
     where: {
-      shop_id: req.body.shop_id
+      id: req.body.category_id
     }
   });
 
@@ -47,5 +50,3 @@ router.get('/category', async (req: Request, res: Response) => {
 });
 
 export default router;
-
-attributes for category are id and name
