@@ -1,8 +1,8 @@
 import axios from 'axios';
 import { useState } from 'react';
 
-const accessKey = 'f69a0a5b-b333-4982-ae28-2a29c28c9a0c';
-const url = 'https://api.web3forms.com/submit';
+const accessKey = 'f69a0a5b-b333-4982-ae28-2a29c28c9a0c'; // move to .env?
+const url = 'https://api.web3forms.com/submit'; // move to .env?
 const initialState = {
 	access_key: accessKey,
 	subject: 'New Submission from Feast Fusion Contact Form',
