@@ -15,6 +15,8 @@ function Header() {
             <NavLink className="nav-link" to="/cuisines/add">Add a New Dish</NavLink>
             <NavLink className="nav-link" to="/register">Sign Up</NavLink>
             <NavLink className="nav-link" to="/login">Sign In</NavLink>
+            <NavLink className="nav-link" to="/contact">Contact</NavLink>
+
           </div>
         </div>
       </div>
