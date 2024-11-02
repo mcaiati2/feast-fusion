@@ -6,7 +6,7 @@ import Category from '../../models/Category.js';
 const router = Router();
 
 // Get the number of meals for the homepage
-router.get('/meal', async (_, res: Response) => {
+router.get('/cuisines/add', async (_, res: Response) => {
   try {
     // Find all categories and attach the user that created the categories and also all the meals associated with the category
     // We use the attributes property to select the columns/fields that we want
@@ -30,7 +30,7 @@ router.get('/meal', async (_, res: Response) => {
 });
 
 
-router.get('/category', async (req: Request, res: Response) => {
+router.get('/', async (req: Request, res: Response) => {
 
   const category = await Category.findAll({
     include: [

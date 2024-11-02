@@ -32,13 +32,13 @@ import ContactForm from './pages/ContactForm';
     return titles[path] || 'Page Not Found';
   };
 
-  useEffect(() => {
-    // Grab the corresponding title based on the current route - what comes after localhost:5173
-    const title = getTitle(location.pathname);
+  // useEffect(() => {
+  //   // Grab the corresponding title based on the current route - what comes after localhost:5173
+  //   const title = getTitle(location.pathname);
 
-    // Set the browser tab title when the location of the browser changes
-    document.title = title || 'Page Not Found';
-  }, [location]);  
+  //   // Set the browser tab title when the location of the browser changes
+  //   document.title = title || 'Page Not Found';
+  // }, [location]);  
 
 function App() {
   return (
