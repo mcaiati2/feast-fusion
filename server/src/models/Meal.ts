@@ -1,7 +1,7 @@
 import { DataTypes, Model } from "sequelize";
 import client from '../config/connection.js';
 
-interface MealAttributes {
+export interface MealAttributes {
   title: string;
   ingredients: string;
   servings: string;

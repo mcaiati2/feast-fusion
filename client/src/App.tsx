@@ -8,6 +8,7 @@ import Landing from './pages/Landing';
 import Cuisines from './pages/Cuisines';
 import RecipeForm from './pages/RecipeForm';
 import AuthForm from './pages/AuthForm';
+import ContactForm from './pages/ContactForm';
 
 
   // Create an object of page titles to use for the browser tab
@@ -51,6 +52,8 @@ function App() {
           <Route path="/cuisines/add" element={<RecipeForm />} />
           <Route path="/register" element={<AuthForm isLogin={false} />} />
           <Route path="/login" element={<AuthForm isLogin={true} />} />
+          <Route path="/contact" element={<ContactForm />} />
+
         </Routes>
       </main>
 
