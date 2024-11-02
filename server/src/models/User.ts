@@ -19,7 +19,6 @@ class User extends Model<UserAttributes> implements UserAttributes {
   public last_name!: string;
   public email!: string;
   public password!: string;
-  public age!: number;
   public full_name?: string;
 
   public async validatePassword(formPassword: string): Promise<boolean> {

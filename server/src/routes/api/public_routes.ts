@@ -48,4 +48,4 @@ router.get('/category', async (req: Request, res: Response) => {
 
 export default router;
 
-attributes for category are id and name
+// attributes for category are id and name
