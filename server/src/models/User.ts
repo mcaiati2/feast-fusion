@@ -4,7 +4,7 @@ import client from '../config/connection.js';
 
 const { hash, compare } = bcrypt;
 
-interface UserAttributes {
+export interface UserAttributes {
   id: number;
   first_name: string;
   last_name: string;
@@ -19,7 +19,6 @@ class User extends Model<UserAttributes> implements UserAttributes {
   public last_name!: string;
   public email!: string;
   public password!: string;
-  public age!: number;
   public full_name?: string;
 
   public async validatePassword(formPassword: string): Promise<boolean> {

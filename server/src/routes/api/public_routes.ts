@@ -1,7 +1,7 @@
 import { Router, Request, Response } from 'express';
-import Meal from '../../models/Meal';
-import User from '../../models/User';
-import Category from '../../models/Category';
+import Meal from '../../models/Meal.js';
+import User from '../../models/User.js';
+import Category from '../../models/Category.js';
 
 const router = Router();
 
@@ -29,10 +29,9 @@ router.get('/meal', async (_, res: Response) => {
   }
 });
 
-// Get wines for a shop
+
 router.get('/category', async (req: Request, res: Response) => {
-  // Get all wines by shop id and also attach the user that created the shop
-  // We use the attributes property to specify the fields we want on the user
+
   const category = await Category.findAll({
     include: [
       {
@@ -41,7 +40,7 @@ router.get('/category', async (req: Request, res: Response) => {
       }
     ],
     where: {
-      id: req.body.shop_id
+      id: req.body.category_id
     }
   });
 

@@ -1,6 +1,6 @@
 import {Router, Request, Response} from 'express';
 import { createToken, verifyToken } from '../helpers/index.js';
-import User from '../../models/User';
+import User from '../../models/User.js';
 
 const router = Router();
 
