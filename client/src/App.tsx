@@ -7,6 +7,7 @@ import Footer from './components/Footer';
 
 import Landing from './pages/Landing';
 import Cuisines from './pages/Cuisines';
+import UserCuisines from './pages/UserCuisines';
 import RecipeForm from './pages/RecipeForm';
 import AuthForm from './pages/AuthForm';
 import ContactForm from './pages/ContactForm';
@@ -18,6 +19,7 @@ const App = () => {
     '/login': 'Feast Fusion - Log In',
     '/cuisines': 'Feast Fusion - Cuisines',
     '/cuisines/add': 'Feast Fusion - Create A Dish',
+    '/cuisines/yours': 'Feast Fusion - Your Cuisines'
   };
 
   const getTitle = (path: string): string => {
@@ -26,7 +28,7 @@ const App = () => {
       if (!isNaN(Number(route))) {
         return `Feast Fusion - Cuisines ${route}`;
       } else {
-        return `Feast Fusion - Create A Dish ${route}`;
+        return `Feast Fusion - ${route[0].toUpperCase()}${route.slice(1)}`;
       }
     }
     return titles[path] || 'Page Not Found';
@@ -47,6 +49,7 @@ const App = () => {
           <Route path="/login" element={<AuthForm isLogin={true} />} />
           <Route path="/cuisines" element={<Cuisines />} />
           <Route path="/cuisines/add" element={<RecipeForm />} />
+          <Route path="/cuisines/yours" element={<UserCuisines />} />
           <Route path="/contact" element={<ContactForm />} />
         </Routes>
       </main>
