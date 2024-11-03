@@ -65,13 +65,13 @@ function App() {
       <main>
         <Routes>
           <Route path="/" element={<Landing />} />
-          
+
+
           {state.user ? (
             <>
               <Route path="/cuisines" element={<Cuisines />} />
               <Route path="/cuisines/add" element={<RecipeForm />} />
               <Route path="/cuisines/yours" element={<UserCuisines />} />
-              <Route path="/contact" element={<ContactForm />} />
             </>
           ) : (
             <>
@@ -79,6 +79,7 @@ function App() {
               <Route path="/register" element={<AuthForm isLogin={false} />} />
             </>
           )}
+          <Route path="/contact" element={<ContactForm />} />
 
           <Route path="*" element={<NotFound />} />
         </Routes>
