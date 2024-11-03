@@ -23,8 +23,8 @@ function ContactForm() {
 		const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 		if (!emailRegex.test(formData.email)) {
-            setErrorMessage('Please enter a valid email address!');
-            return;
+			setErrorMessage('Please enter a valid email address!');
+			return;
 		}
 
 		await axios.post(url, formData);
@@ -47,20 +47,30 @@ function ContactForm() {
 	}
 
 	return (
-		<form onSubmit={handleSubmit} id="contact">
-			<h3 className="text-center">Contact Me</h3>
 
-			{alertMessage && <p className="success text-center">{alertMessage}</p>}
-			{errorMessage && <p className="error text-center">{errorMessage}</p>}
+		<main id='contactStyle'>
+			<section className="row formStyle">
+			<form className="col-4 mx-auto" onSubmit={handleSubmit} id="contact">
+				<h2>Contact Me</h2>
 
-			<input type="hidden" name="access_key" value={accessKey} />
-			<input type="hidden" name="subject" value="New Submission from Feast Fusion Contact Form" />
+				{alertMessage && <p className="success text-center">{alertMessage}</p>}
+				{errorMessage && <p className="error text-center">{errorMessage}</p>}
 
-			<input onChange={handleInputChange} value={formData.full_name} name="full_name" type="text" placeholder="Enter your full name" required />
-			<input onChange={handleInputChange} value={formData.email} name="email" type="text" placeholder="Enter your email address" required />
-			<textarea onChange={handleInputChange} value={formData.message} name="message" placeholder="Tell me something" required></textarea>
-			<button >Send</button>
-		</form>
+				<input type="hidden" name="access_key" value={accessKey} />
+				<input type="hidden" name="subject" value="New Submission from Feast Fusion Contact Form" />
+				<div className="mb-3">
+					<input onChange={handleInputChange} value={formData.full_name} name="full_name" type="text" placeholder="Enter your full name" required />
+				</div>
+				<div className="mb-3">
+					<input onChange={handleInputChange} value={formData.email} name="email" type="text" placeholder="Enter your email address" required />
+				</div>
+				<div className="mb-3">
+					<textarea onChange={handleInputChange} value={formData.message} name="message" placeholder="Tell me something" required></textarea>
+				</div>
+				<button className="btn btn-primary btn-lg px-5">Send</button>
+			</form>
+			</section>
+		</main>
 	)
 }
 

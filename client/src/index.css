@@ -60,6 +60,16 @@ nav a:hover {
     padding-top: 200px;
 }
 
+/* Contact */
+
+#contactStyle {
+    background-image: url('./assets/images/contact.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    height: 100vh;
+}
+
 /* Footer */
 
 footer {
