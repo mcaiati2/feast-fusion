@@ -21,9 +21,6 @@ Category.init(
     name: {
       type: DataTypes.STRING,
       allowNull: false,
-      validate: { // specify custom validation rule:
-        isIn: [['Breakfast', 'Lunch/Dinner', 'Dessert', 'Snack']]
-      }
     }
   },
 
