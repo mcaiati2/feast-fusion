@@ -96,6 +96,16 @@ nav a:hover {
     cursor: pointer;
 }
 
+/* User Cuisines */
+
+#userCuisineStyle {
+    background-image: url('./assets/images/user_cuisines.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    height: 100vh;
+}
+
 /* Add Recipe */
 
 #recipeForm {

@@ -12,6 +12,7 @@ function Header() {
           <div className="navbar-nav ms-auto">
             <NavLink className="nav-link" to="/">Home</NavLink>
             <NavLink className="nav-link" to="/cuisines">Cuisines</NavLink>
+            <NavLink className="nav-link" to="/cuisines/yours">Your Cuisines</NavLink>
             <NavLink className="nav-link" to="/cuisines/add">Add a New Dish</NavLink>
             <NavLink className="nav-link" to="/register">Sign Up</NavLink>
             <NavLink className="nav-link" to="/login">Sign In</NavLink>
