@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
-import { Routes, Route } from 'react-router-dom';
-import { StoreProvider } from './store';
+import { Routes, Route, useLocation } from 'react-router-dom';
+import { useStore } from './store';
 
 import Header from './components/Header';
 import Footer from './components/Footer';
@@ -11,8 +11,19 @@ import UserCuisines from './pages/UserCuisines';
 import RecipeForm from './pages/RecipeForm';
 import AuthForm from './pages/AuthForm';
 import ContactForm from './pages/ContactForm';
+import NotFound from './pages/NotFound';
 
-const App = () => {
+function App() {
+  const store = useStore();
+
+  if (!store) {
+    throw new Error("Store is not available");
+  }
+
+  const { state } = store;
+
+  const location = useLocation();
+
   const titles: { [key: string]: string } = {
     '/': 'Feast Fusion - Home',
     '/register': 'Feast Fusion - Register',
@@ -35,26 +46,45 @@ const App = () => {
   };
 
   useEffect(() => {
-    const path = window.location.pathname;
-    document.title = getTitle(path);
-  }, []);
+    const title = getTitle(location.pathname);
+
+    document.title = title || 'Page Not Found';
+  }, [location]);
 
   return (
-    <StoreProvider>
+    <>
+      {state.loading && (
+        <>
+          <div className="loading d-flex justify-content-center align-items-center">
+            <h2>Curating the menu</h2>
+          </div>
+        </>
+      )}
+
       <Header />
       <main>
         <Routes>
           <Route path="/" element={<Landing />} />
-          <Route path="/register" element={<AuthForm isLogin={false} />} />
-          <Route path="/login" element={<AuthForm isLogin={true} />} />
-          <Route path="/cuisines" element={<Cuisines />} />
-          <Route path="/cuisines/add" element={<RecipeForm />} />
-          <Route path="/cuisines/yours" element={<UserCuisines />} />
-          <Route path="/contact" element={<ContactForm />} />
+          
+          {state.user ? (
+            <>
+              <Route path="/cuisines" element={<Cuisines />} />
+              <Route path="/cuisines/add" element={<RecipeForm />} />
+              <Route path="/cuisines/yours" element={<UserCuisines />} />
+              <Route path="/contact" element={<ContactForm />} />
+            </>
+          ) : (
+            <>
+              <Route path="/login" element={<AuthForm isLogin={true} />} />
+              <Route path="/register" element={<AuthForm isLogin={false} />} />
+            </>
+          )}
+
+          <Route path="*" element={<NotFound />} />
         </Routes>
       </main>
       <Footer />
-    </StoreProvider>
+    </>
   );
 };
 

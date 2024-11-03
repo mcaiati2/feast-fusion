@@ -4,6 +4,16 @@
     --bs-gutter-x: align-items;
 }
 
+div.loading {
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: #fff;
+    z-index: 100;
+  }
+
 /* Navbar */
 
 nav a.active,
@@ -138,6 +148,16 @@ footer {
 
 footer p {
     margin-bottom: 0;
+}
+
+/* Page Not Found */
+
+#notFound {
+    background-image: url('./assets/images/not_found.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    height: 100vh
 }
 
 /* MEDIA QUERY */
