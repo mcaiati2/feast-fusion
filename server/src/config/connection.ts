@@ -2,7 +2,7 @@ import { Sequelize } from "sequelize";
 
 const client = new Sequelize({
   username: 'postgres',
-  password: 'Rycbarm32',
+  password: 'pass',
   database: 'feast_fusion_db',
   host: 'localhost',
   dialect: 'postgres'
