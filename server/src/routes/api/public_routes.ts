@@ -1,53 +1,36 @@
 import { Router, Request, Response } from 'express';
 import Meal from '../../models/Meal.js';
-import User from '../../models/User.js';
-import Category from '../../models/Category.js';
 
 const router = Router();
 
-// Get the number of meals for the homepage
-router.get('/cuisines/add', async (_, res: Response) => {
+// POST endpoint to add a new cuisine
+router.post('/cuisines/add', async (req: Request, res: Response) => {
   try {
-    // Find all categories and attach the user that created the categories and also all the meals associated with the category
-    // We use the attributes property to select the columns/fields that we want
-    const meal = await Meal.findAll({
-      include: [
-        {
-          model: Meal,
-          attributes: ['title', 'ingredients', 'servings', 'instructions', 'category']
-        },
-        {
-          model: Category,
-          attributes: ['name']
-        }
-      ]
+    const { title } = req.body;
+
+    // Create a new cuisine
+    const newMeal = await Meal.create({
+      title,
+      ingredients: req.body.ingredients || '',
+      servings: req.body.servings || 1,
+      instructions: req.body.instructions || ''
     });
 
-    res.json({ meal });
+    res.status(201).json({ cuisine: newMeal });
   } catch (error) {
-    res.status(500).json({ error: 'An error occurred while creating a meal' });
+    res.status(500).json({ error: 'An error occurred while adding the cuisine' });
   }
 });
 
+// GET endpoint to retrieve the list of cuisines
+router.get('/cuisines', async (_: Request, res: Response) => {
+  try {
+    const meals = await Meal.findAll();
 
-router.get('/', async (req: Request, res: Response) => {
-
-  const category = await Category.findAll({
-    include: [
-      {
-        model: User,
-        attributes: ['first_name']
-      }
-    ],
-    where: {
-      id: req.body.category_id
-    }
-  });
-
-  res.json({
-    category
-  });
+    res.status(200).json({ meals });
+  } catch (error) {
+    res.status(500).json({ error: 'An error occurred while retrieving the cuisines' });
+  }
 });
 
 export default router;
-
