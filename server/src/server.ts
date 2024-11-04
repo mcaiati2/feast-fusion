@@ -1,7 +1,7 @@
 import express from 'express';
 import cookieParser from 'cookie-parser';
 import routes from './routes/api/index.js'
-import client from './config/connection.js';
+import {client} from './models/index.js';
 
 const app = express();
 const PORT = process.env.PORT || 3333;
