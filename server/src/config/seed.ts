@@ -1,12 +1,10 @@
 import client from './connection.js';
 import User from '../models/User.js';
-import Meal from '../models/Meal.js';
-import Category from '../models/Category.js';
+import Recipe from '../models/Recipe.js';
 
+await client.sync({ force: true });
 
-  await client.sync({ force: true });
-
-  async function seed() {
+async function seed() {
   await User.bulkCreate([
     {
       id: 1,
@@ -24,27 +22,20 @@ import Category from '../models/Category.js';
     },
   ]);
 
-  await Category.bulkCreate([
-    { id: 1, name: 'Breakfast' },
-    { id: 2, name: 'Lunch/Dinner' },
-    { id: 3, name: 'Dessert' },
-    { id: 4, name: 'Snack' },
-  ]);
-
-  await Meal.bulkCreate([
+  await Recipe.bulkCreate([
     {
-      title: 'Pancakes',
+      recipeName: 'Pancakes',
+      mealTime: 'Breakfast',
       ingredients: 'Flour, Eggs, Milk, Sugar, Baking Powder',
-      servings: '4',
-      instructions: 'Mix ingredients and cook on a griddle.',
-      category: 'Breakfast',
+      servings: 4,
+      preparation: 'Mix ingredients and cook on a griddle.',
     },
     {
-      title: 'Spaghetti Bolognese',
+      recipeName: 'Spaghetti Bolognese',
+      mealTime: 'Lunch/Dinner',
       ingredients: 'Spaghetti, Ground Beef, Tomato Sauce, Garlic, Onion',
-      servings: '4',
-      instructions: 'Cook spaghetti and mix with sauce.',
-      category: 'Lunch/Dinner',
+      servings: 4,
+      preparation: 'Cook spaghetti and mix with sauce.',
     },
   ]);
 
