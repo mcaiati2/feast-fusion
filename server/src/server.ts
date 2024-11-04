@@ -1,7 +1,10 @@
+import { fileURLToPath } from 'url';
+import { dirname } from 'path';
 import express from 'express';
 import cookieParser from 'cookie-parser';
+import path from 'path';
 import routes from './routes/api/index.js'
-import {client} from './models/index.js';
+import { client } from './models/index.js';
 
 const app = express();
 const PORT = process.env.PORT || 3333;
@@ -12,6 +15,15 @@ app.use(cookieParser());
 
 app.use('/', routes);
 
+if (true) {
+  const __filename = fileURLToPath(import.meta.url);
+  const __dirname = dirname(__filename);
+
+  app.use(express.static('../client/dist'));
+  app.get('*', (_, res) => {
+    res.sendFile(path.join(__dirname, '../../client/dist/index.html'));
+  })
+}
 
 await client.sync({ force: false });
 
