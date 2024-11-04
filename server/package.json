@@ -5,7 +5,7 @@
   "main": "server.js",
   "type": "module",
   "scripts": {
-    "build": "tsc && node ./dist/server.js",
+    "build": "tsc",
     "start": "node dist/server.js",
     "seed": "tsc && node dist/config/seed.js",
     "dev": "nodemon"

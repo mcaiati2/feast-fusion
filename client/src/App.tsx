@@ -62,7 +62,7 @@ function App() {
       )}
 
       <Header />
-      <main>
+      <main className="flex-fill">
         <Routes>
           <Route path="/" element={<Landing />} />
           <Route path="/cuisines" element={<Cuisines />} />

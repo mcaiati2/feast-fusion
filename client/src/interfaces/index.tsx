@@ -17,17 +17,18 @@ export interface User {
     category?: Category[]
 }
 
-export interface Meal {
+export interface Recipe {
+    recipeName: string;
+    mealTime: string;
+    ingredients: string;
+    servings: number;
+    preparation: string;
+}
+
+export interface RecipePull {
     title: string;
-    type: string;
     ingredients: string;
     servings: string;
     instructions: string;
 }
 
-export interface Recipe {
-    title: string;
-    ingredients: string;
-    servings: string;
-    instructions: string;
-}

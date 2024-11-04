@@ -6,18 +6,25 @@
   "scripts": {
     "client:install": "cd ./client && npm i",
     "client:dev": "cd ./client && npm run dev",
+    "client:build": "cd ./client && npm run build",
     "server:install": "cd ./server && npm i",
+    "server:build": "cd ./server && npm run build",
     "server:dev": "cd ./server && npm run dev",
-    "dev": "concurrently \"npm run server:dev\" \"npm run client:dev\"",
+    "dev": "concurrently \"npm run server:dev\" \"wait-on tcp:3333 && npm run client:dev\"",
     "seed": "cd ./server && npm run seed",
     "start": "node ./server/dist/server.js",
-    "install:all": "npm i && concurrently \"npm run client:install\" \"npm run server:install\""
+    "install": "cd ./server && npm i",
+    "install:all": "npm i && concurrently \"npm run client:install\" \"npm run server:install\"",
+    "save": "git add -A && git commit -m \"ready for deploy\"",
+    "push": "git push origin HEAD",
+    "deploy": "npm run client:build && npm run server:build && npm run save && npm run push"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "concurrently": "^9.0.1"
+    "concurrently": "^9.0.1",
+    "wait-on": "^8.0.1"
   },
   "dependencies": {
     "all": "^0.0.0",

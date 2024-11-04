@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import { Recipe } from '../interfaces';
+import { RecipePull } from '../interfaces';
 
 function Cuisines() {
-  const [recipes, setRecipes] = useState<Recipe[]>([]);
+  const [recipes, setRecipes] = useState<RecipePull[]>([]);
   const [query, setQuery] = useState('');
   const [inputValue, setInputValue] = useState('');
   const [currentIndex, setCurrentIndex] = useState(0);
