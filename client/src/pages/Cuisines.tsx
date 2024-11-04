@@ -1,12 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-
-interface Recipe {
-  title: string;
-  ingredients: string;
-  servings: string;
-  instructions: string;
-}
+import { Recipe } from '../interfaces';
 
 function Cuisines() {
   const [recipes, setRecipes] = useState<Recipe[]>([]);
