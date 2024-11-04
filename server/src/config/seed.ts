@@ -1,24 +1,28 @@
-import client from './connection.js';
+import {client} from '../models/index.js';
 import User from '../models/User.js';
 import Recipe from '../models/Recipe.js';
 
 await client.sync({ force: true });
 
 async function seed() {
+  // @ts-ignore
   await User.bulkCreate([
+     // @ts-ignore
+
     {
-      id: 1,
       first_name: 'Tom',
       last_name: 'Jackson',
       email: 'tom.jackson@example.com',
       password: 'password123',
     },
+      // @ts-ignore
+
     {
-      id: 2,
       first_name: 'Sarah',
       last_name: 'Thompson',
       email: 'sarah.thompson@example.com',
       password: 'password123',
+  
     },
   ]);
 
@@ -29,6 +33,7 @@ async function seed() {
       ingredients: 'Flour, Eggs, Milk, Sugar, Baking Powder',
       servings: 4,
       preparation: 'Mix ingredients and cook on a griddle.',
+      user_id: 1
     },
     {
       recipeName: 'Spaghetti Bolognese',
@@ -36,6 +41,7 @@ async function seed() {
       ingredients: 'Spaghetti, Ground Beef, Tomato Sauce, Garlic, Onion',
       servings: 4,
       preparation: 'Cook spaghetti and mix with sauce.',
+      user_id: 1
     },
   ]);
 

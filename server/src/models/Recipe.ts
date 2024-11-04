@@ -7,6 +7,7 @@ export interface RecipeAttributes {
   ingredients: string;
   servings: number;
   preparation: string;
+  user_id?: number;
 }
 
 class Recipe extends Model<RecipeAttributes> implements RecipeAttributes {

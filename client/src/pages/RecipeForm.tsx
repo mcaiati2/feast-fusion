@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 function RecipeForm() {
   const [recipeName, setRecipeName] = useState('');
@@ -6,6 +7,7 @@ function RecipeForm() {
   const [ingredients, setIngredients] = useState('');
   const [servings, setServings] = useState('');
   const [preparation, setPreparation] = useState('');
+  const navigate = useNavigate();
 
   const handleSubmit = async (event: React.FormEvent) => {
     event.preventDefault();
@@ -30,6 +32,7 @@ function RecipeForm() {
       if (response.ok) {
         // Handle successful response
         console.log('Recipe added successfully');
+        navigate('/cuisines/yours')
       } else {
         // Handle error response
         console.error('Failed to add recipe');
@@ -64,7 +67,7 @@ function RecipeForm() {
                 value={mealTime}
                 onChange={(e) => setMealTime(e.target.value)}
               >
-                <option selected>When is the meal best served?</option>
+                <option defaultValue="none">When is the meal best served?</option>
                 <option value="Breakfast">Breakfast</option>
                 <option value="Lunch/Dinner">Lunch/Dinner</option>
                 <option value="Dessert">Dessert</option>

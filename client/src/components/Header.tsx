@@ -34,7 +34,7 @@ function Header() {
           <span className="navbar-toggler-icon"></span>
         </button>
         <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
-          <div className="navbar-nav ms-auto">
+          <div className="navbar-nav ms-auto d-flex align-items-center">
             {state.user && <p className="m-0 pe-4 align-middle">Welcome, Chef {state.user.first_name}</p>}
 
             <NavLink className="nav-link" to="/">Home</NavLink>
