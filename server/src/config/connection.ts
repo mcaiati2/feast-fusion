@@ -16,12 +16,6 @@ client = process.env.DB_URL ? new Sequelize(process.env.DB_URL, {
   host: 'localhost',
   dialect: 'postgres',
   logging: false,
-  dialectOptions: {
-    ssl: {
-      require: true,
-      rejectUnauthorized: false
-    }
-  }
 });
 
 export default client;
