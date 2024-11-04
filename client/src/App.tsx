@@ -56,7 +56,7 @@ function App() {
       {state.loading && (
         <>
           <div className="loading d-flex justify-content-center align-items-center">
-            <h2>Curating the menu</h2>
+            <h2>Curating the menu...</h2>
           </div>
         </>
       )}
@@ -65,11 +65,11 @@ function App() {
       <main>
         <Routes>
           <Route path="/" element={<Landing />} />
+          <Route path="/cuisines" element={<Cuisines />} />
 
 
           {state.user ? (
             <>
-              <Route path="/cuisines" element={<Cuisines />} />
               <Route path="/cuisines/add" element={<RecipeForm />} />
               <Route path="/cuisines/yours" element={<UserCuisines />} />
             </>

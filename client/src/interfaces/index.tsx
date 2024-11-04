@@ -19,7 +19,14 @@ export interface User {
 
 export interface Meal {
     title: string;
-    category?: Category[];
+    type: string;
+    ingredients: string;
+    servings: string;
+    instructions: string;
+}
+
+export interface Recipe {
+    title: string;
     ingredients: string;
     servings: string;
     instructions: string;
