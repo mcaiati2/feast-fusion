@@ -19,7 +19,7 @@ if (process.env.PORT) {
   const __filename = fileURLToPath(import.meta.url);
   const __dirname = dirname(__filename);
 
-  app.use(express.static('../client/dist'));
+  app.use(express.static(path.join(__dirname, '../../client/dist')));
   app.get('*', (_, res) => {
     res.sendFile(path.join(__dirname, '../../client/dist/index.html'));
   })
