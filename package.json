@@ -16,7 +16,7 @@
     "install": "cd ./server && npm i",
     "install:all": "npm i && concurrently \"npm run client:install\" \"npm run server:install\"",
     "save": "git add -A && git commit -m \"ready for deploy\"",
-    "push": "git push origin HEAD",
+    "push": "git push origin HEAD:main",
     "deploy": "npm run client:build && npm run server:build && npm run save && npm run push"
   },
   "keywords": [],

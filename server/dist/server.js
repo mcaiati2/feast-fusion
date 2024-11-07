@@ -18,5 +18,5 @@ if (process.env.PORT) {
         res.sendFile(path.join(__dirname, '../../client/dist/index.html'));
     });
 }
-await client.sync({ force: true });
+await client.sync({ force: false });
 app.listen(PORT, () => console.log('Express server started'));
