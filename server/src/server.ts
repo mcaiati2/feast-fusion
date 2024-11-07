@@ -25,6 +25,6 @@ if (process.env.PORT) {
   })
 }
 
-await client.sync({ force: true });
+await client.sync({ force: false });
 
 app.listen(PORT, () => console.log('Express server started'));

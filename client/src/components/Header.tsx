@@ -38,12 +38,12 @@ function Header() {
             {state.user && <p className="m-0 pe-4 align-middle">Welcome, Chef {state.user.first_name}</p>}
 
             <NavLink className="nav-link" to="/">Home</NavLink>
-            <NavLink className="nav-link" to="/cuisines">Cuisines</NavLink>
+            <NavLink className="nav-link" to="/cuisines" end>Cuisines</NavLink>
 
             {state.user ? (
               <>
-                <NavLink className="nav-link" to="/cuisines/yours">Your Cuisines</NavLink>
-                <NavLink className="nav-link" to="/cuisines/add">Add a New Dish</NavLink>
+                <NavLink className="nav-link" to="/cuisines/yours" end>Your Cuisines</NavLink>
+                <NavLink className="nav-link" to="/cuisines/add" end>Add a New Dish</NavLink>
                 <a onClick={logoutUser} className="nav-link" href="/auth/logout">Log Out</a>
               </>
             ) : (
